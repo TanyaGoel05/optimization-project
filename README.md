@@ -21,8 +21,8 @@ Then, create `Gulpfile.js` in root directory.
 We can run `gulp` (default). Follow some tutorials like below or Google it!
 
 - https://www.npmjs.com/package/gulp-image-resize
-- https://www.npmjs.com/package/gulp-imagemin
-- https://www.npmjs.com/package/gulp-minify-css
+- use [imageOptim](https://imageoptim.com/) or (https://www.npmjs.com/package/gulp-imagemin)
+- https://www.npmjs.com/package/gulp-minify-css)
 - https://www.npmjs.com/package/gulp-uglify
 - https://www.npmjs.com/package/gulp-minify-html
 - [Gulp tutorial](http://www.sitepoint.com/introduction-gulp-js/)
@@ -38,7 +38,7 @@ We can run `gulp` (default). Follow some tutorials like below or Google it!
 - Added `media="print"` in `<link href="css/print.css" rel="stylesheet" >`
 - Added `async` in `<script src="http://www.google-analytics.com/analytics.js"></script>`
 - Load Google Font (render blocking CSS) via Javascript - Reference to [Optimize CSS Delivery](https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery)
-- Resized the `pizzeria.jpg` image using gulp
+- Resized the `pizzeria.jpg` image using gulp `gulp-image-resize`
 - Optimized images in the `dist/img` with [ImageOptim](https://imageoptim.com/)in the
 - Minimized CSS using gulp `gulp-minify-css`. Then, move `style.css` content inside index.html `<style></style>` to avoid requesting it
 - Minimized JS file using gulp `gulp-uglify`
@@ -61,8 +61,8 @@ We can run `gulp` (default). Follow some tutorials like below or Google it!
 <meta name=author content="Yuichi Hagio">
 <title>Cam's Pizzeria</title>
 ```
-- Resized the iamges
-- Minimized CSS and make it inline instead of requesting
-- Minimized JS file and make it inline instead of requesting
+- Resized the images using gulp `gulp-image-resize`
+- Minimized CSS (style.css and bootstrap-grid.css) using gulp `gulp-minify-css` and make it inline instead of requesting in the `<style></style>` in `<head></head>`
+- Minimized `main.js` file using gulp `gulp-uglify` and make it inline in the `<script></script>` at the bottom of `<body></body>` instead of requesting
 - Optimized images in `dist/views/images` with [ImageOptim](https://imageoptim.com/)
 - Minimized HTML
