@@ -28,7 +28,7 @@ We can run `gulp` (default). Follow some tutorials like below or Google it!
 - [Gulp tutorial](http://www.sitepoint.com/introduction-gulp-js/)
 <hr />
 
-### 1st Optimization Project - Optimize `./src/index.html`
+### 1st Optimization Project - Optimize ./src/index.html
 
 - [Source (before minimized) folder for this project - /src/]()
 - [Minimized dist folder for this project - /dist/]()
@@ -37,6 +37,7 @@ We can run `gulp` (default). Follow some tutorials like below or Google it!
 
 - Added `media="print"` in `<link href="css/print.css" rel="stylesheet" >`
 - Added `async` in `<script src="http://www.google-analytics.com/analytics.js"></script>`
+- Move `style.css` content to html `<style></style>`, inline style
 - Resized the pizzeria image
 - Optimized images in the `dist/images` with [ImageOptim](https://imageoptim.com/)in the
 - Minimized CSS and make it inline instead of requesting
@@ -46,7 +47,7 @@ We can run `gulp` (default). Follow some tutorials like below or Google it!
 
 
 <hr />
-### 2nd Optimization Project - Optimize `./src/views/pizza.html`
+### 2nd Optimization Project - Optimize ./src/views/pizza.html
 
 - [Source (before minimized) folder for this project - /src/views/]()
 - [Minimized dist folder for this project - /dist/views/]()
