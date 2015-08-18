@@ -37,12 +37,11 @@ We can run `gulp` (default). Follow some tutorials like below or Google it!
 
 - Added `media="print"` in `<link href="css/print.css" rel="stylesheet" >`
 - Added `async` in `<script src="http://www.google-analytics.com/analytics.js"></script>`
-- Move `style.css` content to html `<style></style>`, inline style
-- Resized the pizzeria image
-- Optimized images in the `dist/images` with [ImageOptim](https://imageoptim.com/)in the
-- Minimized CSS and make it inline instead of requesting
-- Minimized JS file and make it inline instead of requesting
-- Not using Google Font if not necessary
+- Load Google Font (render blocking CSS) via Javascript - Reference to [Optimize CSS Delivery](https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery)
+- Resized the `pizzeria.jpg` image using gulp
+- Optimized images in the `dist/img` with [ImageOptim](https://imageoptim.com/)in the
+- Minimized CSS using gulp `gulp-minify-css`. Then, move `style.css` content inside index.html `<style></style>` to avoid requesting it
+- Minimized JS file using gulp `gulp-uglify`
 - Minimized HTML
 
 

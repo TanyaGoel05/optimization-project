@@ -8,9 +8,9 @@
     <title>Cameron Pittman: Portfolio</title>
 
     <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
 
-    <!-- Made style.css inline instead of loading -->
+    <!-- Move style.css content inside style tags to avoid requesting (before minimize) -->
     <style media="screen">
       html {
         font-size: 100%;
@@ -78,6 +78,19 @@
     <!-- Added "async" here -->
     <script async src="http://www.google-analytics.com/analytics.js"></script>
     <script async src="js/perfmatters.js"></script>
+
+    <!-- Load Google Font via Javascript -->
+    <script>
+     var cb = function() {
+       var l = document.createElement('link'); l.rel = 'stylesheet';
+       l.href = '//fonts.googleapis.com/css?family=Open+Sans:400,700';
+       var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+     };
+     var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+         webkitRequestAnimationFrame || msRequestAnimationFrame;
+     if (raf) raf(cb);
+     else window.addEventListener('load', cb);
+    </script>
   </head>
 
   <body>
@@ -112,7 +125,11 @@
           </li>
 
           <li>
-            <img style="width: 100px;" src="views/images/pizzeria.jpg">
+            <!--
+              Resize this pizzeria image since it's too large for the usage.
+              Used gulp to resize this to 115 x 75 px.
+            -->
+            <img style="width: 100px;" src="img/pizzeria.jpg">
             <a href="views/pizza.html">Cam's Pizzeria</a>
             <p>Who wants a performant pizza?</p>
           </li>

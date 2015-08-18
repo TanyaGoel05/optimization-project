@@ -8,11 +8,12 @@ var minifyHTML = require('gulp-minify-html');
 
 // ================ For Project 1 ================
 
-// Resize the images to the size you need for this page
+// Resize the pizzaria.jpg to the size I need for index.html
+// If I look actual size used in Chrome console, it's 115 x 75 px
 gulp.task('resizeImg', function () {
   gulp.src('./src/views/images/pizzeria.jpg')
     .pipe(resizeImg({
-      width : 100,
+      width : 115,
       height: 75
     }))
     .pipe(gulp.dest('./dist/img'));
@@ -56,14 +57,14 @@ gulp.task('default', ['resizeImg', 'miniimg', 'minicss', 'minijs', 'minihtml'], 
 
 
 // ================ For Project 2 ================
-// Resize
+// // Resize
 // gulp.task('resizeImg1', function () {
 //   gulp.src('./views/images/pizzeria.jpg')
 //     .pipe(resizeImg({
 //       width : 720,
 //       height: 540
 //     }))
-//     .pipe(gulp.dest('./part_2_optimized/images'));
+//     .pipe(gulp.dest('./dist/views/images'));
 // });
 //
 // gulp.task('resizeImg2', function () {
@@ -72,42 +73,42 @@ gulp.task('default', ['resizeImg', 'miniimg', 'minicss', 'minijs', 'minihtml'], 
 //       width : 163,
 //       height: 213
 //     }))
-//     .pipe(gulp.dest('./part_2_optimized/images'));
+//     .pipe(gulp.dest('./dist/views/images'));
 // });
 //
 // // Minify Images
 // gulp.task('miniimg', function() {
-//   gulp.src('./views/images/*')
+//   gulp.src('./src/views/images/*')
 //     .pipe(imagemin())
-//     .pipe(gulp.dest('./part_2_optimized/images'));
+//     .pipe(gulp.dest('./dist/views/images'));
 // });
 //
 // // Minify CSS
 // gulp.task('minicss', function() {
-//   gulp.src('./views/css/*.css')
+//   gulp.src('./src/views/css/*.css')
 //     .pipe(minifyCss())
-//     .pipe(gulp.dest('./part_2_optimized/css'));
+//     .pipe(gulp.dest('./dist/views/css'));
 // });
 //
 // // Minify JavaScript
 // gulp.task('minijs', function() {
-//   gulp.src('./views/js/*.js')
+//   gulp.src('./src/views/js/*.js')
 //     .pipe(uglify())
-//     .pipe(gulp.dest('./part_2_optimized/js'));
+//     .pipe(gulp.dest('./dist/views/js'));
 // });
 //
 // // Minify HTML
 // gulp.task('minihtml', function() {
-//   gulp.src('./views/pizza.html')
+//   gulp.src('./src/views/pizza.html')
 //     .pipe(minifyHTML())
-//     .pipe(gulp.dest('./part_2_optimized'));
+//     .pipe(gulp.dest('./dist/views'));
 // });
 //
 //
 //
 // gulp.task('default', ['resizeImg1', 'resizeImg2', 'miniimg', 'minicss', 'minijs', 'minihtml'], function() {
 //   // watch for HTML changes
-//   gulp.watch('./views/pizza.html', function() {
+//   gulp.watch('./src/views/pizza.html', function() {
 //     gulp.run('minihtml');
 //   });
 // });
