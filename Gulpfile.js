@@ -10,7 +10,7 @@ var minifyHTML = require('gulp-minify-html');
 
 // Resize the images to the size you need for this page
 gulp.task('resizeImg', function () {
-  gulp.src('./views/images/pizzeria.jpg')
+  gulp.src('./src/views/images/pizzeria.jpg')
     .pipe(resizeImg({
       width : 100,
       height: 75
@@ -20,35 +20,35 @@ gulp.task('resizeImg', function () {
 
 // Minify Images
 gulp.task('miniimg', function() {
-  gulp.src('./img/*')
+  gulp.src('./src/img/*')
     .pipe(imagemin())
     .pipe(gulp.dest('./dist/img'));
 });
 
 // Minify CSS
 gulp.task('minicss', function() {
-  gulp.src('./css/*.css')
+  gulp.src('./src/css/*.css')
     .pipe(minifyCss())
     .pipe(gulp.dest('./dist/css'));
 });
 
 // Minify JavaScript
 gulp.task('minijs', function() {
-  gulp.src('./js/*.js')
+  gulp.src('./src/js/*.js')
     .pipe(uglify())
     .pipe(gulp.dest('./dist/js'));
 });
 
 // Minify HTML
 gulp.task('minihtml', function() {
-  gulp.src('./*.html')
+  gulp.src('./src/*.html')
     .pipe(minifyHTML())
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('default', ['resizeImg', 'miniimg', 'minicss', 'minijs', 'minihtml'], function() {
   // watch for HTML changes
-  gulp.watch('./*.html', function() {
+  gulp.watch('./src/*.html', function() {
     gulp.run('minihtml');
   });
 });
