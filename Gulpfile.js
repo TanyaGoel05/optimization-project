@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var resizeImg = require('gulp-image-resize');
-var imagemin = require('gulp-imagemin');
+var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var minifyHTML = require('gulp-minify-html');
 

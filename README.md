@@ -66,3 +66,18 @@ We can run `gulp` (default). Follow some tutorials like below or Google it!
 - Minimized `main.js` file using gulp `gulp-uglify` and make it inline in the `<script></script>` at the bottom of `<body></body>` instead of requesting
 - Optimized images in `dist/views/images` with [ImageOptim](https://imageoptim.com/)
 - Minimized HTML
+
+
+### Changelog on Aug 18, 2015 in views/js/main.js
+- **Line.404** : Used `"use strict";` inside function in `views/js/main.js`. [Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
+- **Line.411** : Use "getElementById" instead of "querySelector", and store it in a variable outside the function
+- **Line.434** : Use "getElementById" instead of "querySelector" since Web API call is faster.
+- **Line.462** : Used `document.getElementsByClassName()` instead of using `document.querySelectorAll()` since Web API call is faster.
+- **Line.462** : Store the reference in a variable, `pizzaElementArrays`. DRY.
+- **Line.466** : Save the array length in the variable "len", so the array's length property is not accessed to check its value at each iteration.
+- **Line.486** : Moved pizzasDiv to outside the for loop to avoid calling the dom repeatedly
+- **Line.521** : Use getElementsByClassName instead of querySelectorAll since Web API call is faster.
+- **Line.524** : Moved the variable "phase" to outside the loop to avoid the same DOM getting called again and again
+- **Line.527** : Save the array length in the variable "len", so the array's length property is not accessed to check its value at each iteration.
+- **Line.550** : Initialize the variable "elem" outside the for-loop to prevent it is being created everytime the loop goes through
+- **Line.553** : Changed "querySelector" to "getElementById" since Web API call is faster, and initialize the variable and store the reference outside the loop
