@@ -77,7 +77,11 @@ We can run `gulp` (default). Follow some tutorials like below or Google it!
 - **Line.466** : Save the array length in the variable "len", so the array's length property is not accessed to check its value at each iteration.
 - **Line.486** : Moved pizzasDiv to outside the for loop to avoid calling the dom repeatedly
 - **Line.521** : Use getElementsByClassName instead of querySelectorAll since Web API call is faster.
-- **Line.524** : Moved the variable "phase" to outside the loop to avoid the same DOM getting called again and again
+- **Line.524** : Defined the variable "phase" outside the loop to avoid creating a new one repeatedly
 - **Line.527** : Save the array length in the variable "len", so the array's length property is not accessed to check its value at each iteration.
 - **Line.550** : Initialize the variable "elem" outside the for-loop to prevent it is being created everytime the loop goes through
 - **Line.553** : Changed "querySelector" to "getElementById" since Web API call is faster, and initialize the variable and store the reference outside the loop
+
+# TODO
+- changePizzaSizes()
+- updatePositions()

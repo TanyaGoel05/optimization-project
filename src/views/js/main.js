@@ -408,7 +408,7 @@ var resizePizzas = function(size) {
   // Changes the value for the size of the pizza above the slider
   // Use "getElementById" instead of "querySelector", and
   // store it in a variable outside the function
-  var pizzaSize = document.getElementById('pizzaSize');
+  var pizzaSize = document.getElementById("pizzaSize");
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
@@ -519,12 +519,13 @@ function updatePositions() {
   // Use getElementsByClassName instead of querySelectorAll
   // since Web API call is faster.
   var items = document.getElementsByClassName('mover');
-  // Moved the variable "phase" to outside the loop to avoid
-  // the same DOM getting called again and again
-  var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+  // Defined the variable "phase" outside the loop
+  // to avoid creating a new one repeatedly
+  var phase;
   // Save the array length in the variable "len", so the array's length property
   // is not accessed to check its value at each iteration.
   for (var i = 0, len = items.length; i < len; i++) {
+    phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
