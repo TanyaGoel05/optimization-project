@@ -73,15 +73,16 @@ We can run `gulp` (default). Follow some tutorials like below or Google it!
 - **Line.411** : Use "getElementById" instead of "querySelector", and store it in a variable outside the function
 - **Line.434** : Use "getElementById" instead of "querySelector" since Web API call is faster.
 - **Line.462** : Used `document.getElementsByClassName()` instead of using `document.querySelectorAll()` since Web API call is faster.
-- **Line.462** : Store the reference in a variable, `pizzaElementArrays`. DRY.
-- **Line.466** : Save the array length in the variable "len", so the array's length property is not accessed to check its value at each iteration.
-- **Line.486** : Moved pizzasDiv to outside the for loop to avoid calling the dom repeatedly
-- **Line.521** : Use getElementsByClassName instead of querySelectorAll since Web API call is faster.
-- **Line.524** : Defined the variable "phase" outside the loop to avoid creating a new one repeatedly
-- **Line.527** : Save the array length in the variable "len", so the array's length property is not accessed to check its value at each iteration.
-- **Line.550** : Initialize the variable "elem" outside the for-loop to prevent it is being created everytime the loop goes through
-- **Line.553** : Changed "querySelector" to "getElementById" since Web API call is faster, and initialize the variable and store the reference outside the loop
+- **Line.463** : Store the reference in a variable, `pizzaElementArrays`. DRY.
+- **Line.466-492** : Moved "determineDx()" (Line.432-457) content below since the function loops through all whole "pizzaElementArrays" but it is not necessary since most of values are same.
+- **Line.496** : Save the array length in the variable "len", so the array's length property is not accessed to check its value at each iteration.
+- **Line.498-499** : Moved these 2 lines outside the loop with a little modification. DRY.
+- **Line.517** : Moved pizzasDiv to outside the for loop to avoid calling the dom repeatedly
+- **Line.552** : Use getElementsByClassName instead of querySelectorAll since Web API call is faster.
+- **Line.555** : Defined the variable "phase" outside the loop to avoid creating a new one repeatedly
+- **Line.558** : Save the array length in the variable "len", so the array's length property is not accessed to check its value at each iteration.
+- **Line.582** : Initialize the variable "elem" outside the for-loop to prevent it is being created everytime the loop goes through
+- **Line.585** : Changed "querySelector" to "getElementById" since Web API call is faster, and initialize the variable and store the reference outside the loop
 
 # TODO
-- changePizzaSizes()
 - updatePositions()

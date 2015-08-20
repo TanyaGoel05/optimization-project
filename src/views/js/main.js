@@ -428,6 +428,7 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
+  // NOTES: I moved the content of this function to in the changePizzaSizes(), Line.464~502
   function determineDx (elem, size) {
     var oldwidth = elem.offsetWidth;
     // Use "getElementById" instead of "querySelector" since Web API call is faster.
@@ -461,11 +462,41 @@ var resizePizzas = function(size) {
  // EDIT-2: Store the reference in a variable, pizzaElementArrays. DRY.
   var pizzaElementArrays = document.getElementsByClassName("randomPizzaContainer");
   function changePizzaSizes(size) {
+
+    // Moved "determineDx()" (Line.432-457) content below since
+    // the function loops through all whole "pizzaElementArrays"
+    // but it is not necessary since most of values are same.
+
+    // Here, replaced "elem.offsetWidth" with "pizzaElementArrays[0].offsetWidth"
+    // since all "elem" offsetWidth are same.
+    var oldwidth = pizzaElementArrays[0].offsetWidth;
+    // Use "getElementById" instead of "querySelector" since Web API call is faster.
+    var windowwidth = document.getElementById("randomPizzas").offsetWidth;
+    var oldsize = oldwidth / windowwidth;
+    // Declare "newsize" variable
+    var newsize;
+    switch(size) {
+      case "1":
+        newsize = 0.25;
+        break;
+      case "2":
+        newsize = 0.3333;
+        break;
+      case "3":
+        newsize = 0.5;
+        break;
+      default:
+        console.log("bug in sizeSwitcher");
+    }
+    var dx = (newsize - oldsize) * windowwidth;
+    var newwidth = (pizzaElementArrays[0].offsetWidth + dx) + 'px';
+
     // Save the array length in the variable "len", so the array's length property
     // is not accessed to check its value at each iteration.
     for (var i = 0, len = pizzaElementArrays.length; i < len; i++) {
-      var dx = determineDx(pizzaElementArrays[i], size);
-      var newwidth = (pizzaElementArrays[i].offsetWidth + dx) + 'px';
+      // I don't need following 2 lines since they are already defined above (Line.491-492)
+      //No longer needed: var dx = determineDx(pizzaElementArrays[i], size);
+      //No longer needed: var newwidth = (pizzaElementArrays[i].offsetWidth + dx) + 'px';
       pizzaElementArrays[i].style.width = newwidth;
     }
   }
@@ -554,7 +585,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var movingPizzas1 = document.getElementById("movingPizzas1");
 
   for (var i = 0; i < 200; i++) {
-    // Use the reference created outside the loop (Line.546)
+    // Use the reference created outside the loop (Line.582)
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -562,7 +593,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    // Use the reference created outside the loop (Line.549)
+    // Use the reference created outside the loop (Line.585)
     movingPizzas1.appendChild(elem);
   }
   updatePositions();
