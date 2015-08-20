@@ -68,7 +68,7 @@ We can run `gulp` (default). Follow some tutorials like below or Google it!
 - Minimized HTML
 
 
-### Changelog on Aug 18, 2015 in views/js/main.js
+### Changelog on Aug 18-19, 2015 in views/js/main.js
 - **Line.404** : Used `"use strict";` inside function in `views/js/main.js`. [Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
 - **Line.411** : Use "getElementById" instead of "querySelector", and store it in a variable outside the function
 - **Line.434** : Use "getElementById" instead of "querySelector" since Web API call is faster.
@@ -80,9 +80,7 @@ We can run `gulp` (default). Follow some tutorials like below or Google it!
 - **Line.517** : Moved pizzasDiv to outside the for loop to avoid calling the dom repeatedly
 - **Line.552** : Use getElementsByClassName instead of querySelectorAll since Web API call is faster.
 - **Line.555** : Defined the variable "phase" outside the loop to avoid creating a new one repeatedly
-- **Line.558** : Save the array length in the variable "len", so the array's length property is not accessed to check its value at each iteration.
-- **Line.582** : Initialize the variable "elem" outside the for-loop to prevent it is being created everytime the loop goes through
-- **Line.585** : Changed "querySelector" to "getElementById" since Web API call is faster, and initialize the variable and store the reference outside the loop
-
-# TODO
-- updatePositions()
+- **Line.560** : Created variable "calculated" instead of running "document.body.scrollTop / 1250" multiple times
+- **Line.561** : Save the array length in the variable "len", so the array's length property is not accessed to check its value at each iteration.
+- **Line.585** : Initialize the variable "elem" outside the for-loop to prevent it is being created everytime the loop goes through
+- **Line.588** : Changed "querySelector" to "getElementById" since Web API call is faster, and initialize the variable and store the reference outside the loop

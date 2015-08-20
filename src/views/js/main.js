@@ -555,8 +555,11 @@ function updatePositions() {
   var phase;
   // Save the array length in the variable "len", so the array's length property
   // is not accessed to check its value at each iteration.
+  // Created variable 'calculated' instead of running
+  // `document.body.scrollTop / 1250` multiple times
+  var calculated = document.body.scrollTop / 1250;
   for (var i = 0, len = items.length; i < len; i++) {
-    phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    phase = Math.sin(calculated + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -585,7 +588,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var movingPizzas1 = document.getElementById("movingPizzas1");
 
   for (var i = 0; i < 200; i++) {
-    // Use the reference created outside the loop (Line.582)
+    // Use the reference "elem" created outside the loop (Line.585)
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -593,7 +596,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    // Use the reference created outside the loop (Line.585)
+    // Use the reference "movingPizzas1" created outside the loop (Line.588)
     movingPizzas1.appendChild(elem);
   }
   updatePositions();
